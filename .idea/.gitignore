@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyd
+*.pyo
+*.egg-info/
+*.egg
+dist/
+build/
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+.venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Flask
+instance/
+.env
+.env.local
+.env.*.local
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# Local development
+*.local
+.dockerignore
+
+# Uploads and media
+/static/uploads/**
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Configs with secrets
+/config.py   # если он содержит чувствительные данные
+/secrets/
+/keys/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+*.iws
+/out/
+/.idea_modules/
+/.idea_workspace.xml

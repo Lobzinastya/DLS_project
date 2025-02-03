@@ -1,0 +1,43 @@
+body {
+    padding: 20px;
+}
+
+.annotation-wrapper {
+    border: 2px solid #ddd;
+    position: relative;
+    margin: 20px 0;
+}
+
+#annotation-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+
+.annotation-wrapper {
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#frame-img {
+    pointer-events: none; /* Чтобы клики проходили через img к canvas */
+}
+
+#annotation-canvas {
+    z-index: 1000;
+}
+
+.sticker-preview {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+

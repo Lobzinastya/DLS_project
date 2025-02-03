@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h3 class="mb-4">Click to Mark Points</h3>
+        <div class="annotation-wrapper position-relative" style="width: 640px; height: 360px;">
+            <!-- Исправленный src с url_for -->
+            <img id="frame-img"
+                 src="{{ url_for('static', filename=frame_path) }}"
+                 class="position-absolute"
+                 style="width: 640px; height: 360px;">
+            <canvas id="annotation-canvas"
+                    class="position-absolute"
+                    width="640"
+                    height="360"
+                    style="cursor: crosshair"></canvas>
+        </div>
+        <button id="submit-points" class="btn btn-success mt-3">Generate Sticker</button>
+    </div>
+</div>
+{% endblock %}
