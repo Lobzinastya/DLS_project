@@ -157,7 +157,7 @@ def result():
     image_files = sorted(
         [f for f in os.listdir(input_folder) if f.endswith(".png")],
         key=lambda x: int(os.path.splitext(x)[0].split('_')[-1]))
-    )
+
 
     if not image_files:
         raise ValueError("В папке нет рендеров PNG-файлов!")
