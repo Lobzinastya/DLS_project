@@ -1,22 +1,109 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row">
-    <div class="col">
-        <h3 class="mb-4">Click to Mark Points</h3>
-        <div class="annotation-wrapper position-relative" style="width: 640px; height: 360px;">
-            <!-- Исправленный src с url_for -->
-            <img id="frame-img"
-                 src="{{ url_for('static', filename=frame_path) }}"
-                 class="position-absolute"
-                 style="width: 640px; height: 360px;">
-            <canvas id="annotation-canvas"
-                    class="position-absolute"
-                    width="640"
-                    height="360"
-                    style="cursor: crosshair"></canvas>
+<div class="container">
+    <h3 class="mb-4">Annotate Frame</h3>
+
+    <!-- Переключатель меток -->
+    <div class="mb-4">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="label"
+                   id="label1" value="1" checked>
+            <label class="form-check-label text-success" for="label1">
+                1 - Positive (Object)
+            </label>
         </div>
-        <button id="submit-points" class="btn btn-success mt-3">Generate Sticker</button>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="label"
+                   id="label0" value="0">
+            <label class="form-check-label text-danger" for="label0">
+                0 - Negative (Background)
+            </label>
+        </div>
     </div>
+
+    <!-- Область аннотации -->
+    <div class="annotation-wrapper position-relative"
+         style="width: 640px; height: 360px;">
+        <img src="{{ url_for('static', filename=frame_path) }}"
+             class="position-absolute"
+             style="width: 640px; height: 360px;">
+        <canvas id="annotation-canvas"
+                class="position-absolute"
+                width="640"
+                height="360"
+                style="cursor: crosshair"></canvas>
+    </div>
+
+    <!-- Кнопки управления -->
+    <button id="submit-points" class="btn btn-primary mt-3">
+        Generate Sticker
+    </button>
+    <div id="annotation-log" class="mt-3 p-2 border-top"></div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('annotation-canvas');
+    const ctx = canvas.getContext('2d');
+    let points = [];
+
+    // Обработчик кликов
+    canvas.addEventListener('click', async (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const label = document.querySelector('input[name="label"]:checked').value;
+
+        // Сохраняем точку
+        points.push({x, y, label});
+
+        // Рисуем точку
+        drawPoint(x, y, label);
+
+        // Логируем действие
+        logAnnotation(x, y, label);
+    });
+
+    // Функция отрисовки точек
+    function drawPoint(x, y, label) {
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2);
+        ctx.fillStyle = label === '1' ? '#28a745' : '#dc3545';
+        ctx.fill();
+    }
+
+    // Логирование аннотаций
+    function logAnnotation(x, y, label) {
+        const logEntry = document.createElement('div');
+        logEntry.innerHTML = `Point: (${x.toFixed(1)}, ${y.toFixed(1)})
+                            - Label: ${label}
+                            <span class="badge badge-${label === '1' ? 'success' : 'danger'}">
+                                ${label === '1' ? 'Object' : 'Background'}
+                            </span>`;
+        document.getElementById('annotation-log').appendChild(logEntry);
+    }
+
+    // Отправка аннотаций
+    document.getElementById('submit-points').addEventListener('click', async () => {
+        try {
+            const response = await fetch('/save-annotations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ points })
+            });
+
+            if (response.ok) {
+                window.location.href = '/generate';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    });
+});
+</script>
 {% endblock %}

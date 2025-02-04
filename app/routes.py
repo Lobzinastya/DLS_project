@@ -73,6 +73,36 @@ def annotate():
 
     return render_template('annotate.html', frame_path=relative_path)
 
+
+@app.route('/save-annotations', methods=['POST'])
+def save_annotations():
+    try:
+        data = request.json
+        annotations = data.get('points', [])
+
+        # Валидация данных
+        for ann in annotations:
+            if not all(key in ann for key in ('x', 'y', 'label')):
+                return jsonify({"status": "error", "message": "Invalid annotation format"}), 400
+            if ann['label'] not in ('0', '1'):
+                return jsonify({"status": "error", "message": "Invalid label value"}), 400
+
+        # Сохраняем в сессии
+        session['annotations'] = annotations
+
+        # Дополнительно: сохраняем в файл
+        annotations_dir = os.path.join(current_app.config['BASE_DIR'], 'annotations')
+        os.makedirs(annotations_dir, exist_ok=True)
+
+        with open(os.path.join(annotations_dir, 'annotations.json'), 'w') as f:
+            json.dump(annotations, f)
+
+        return jsonify({"status": "success", "count": len(annotations)})
+
+    except Exception as e:
+        current_app.logger.error(f"Annotation error: {str(e)}")
+        return jsonify({"status": "error", "message": str(e)}), 500
+
 @app.route('/process', methods=['POST'])
 def process():
     # Здесь будет обработка точек
