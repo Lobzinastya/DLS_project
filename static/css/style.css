@@ -1,33 +1,82 @@
+/* Основной фон страницы (очень светлый синий) */
 body {
-    background-color: #F8F9FA;
+    background-color: #E3F2FD; /* Светло-голубой */
     padding: 20px;
 }
 
-.annotation-log-entry {
-    padding: 5px;
-    margin: 3px 0;
-    border-radius: 4px;
-    background-color: #f8f9fa;
+/* Навигация (тёмно-синий фон) */
+.navbar {
+    background-color: #0D47A1 !important; /* Тёмно-синий */
 }
 
+/* Основной контейнер */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Заголовки */
+.page-title {
+    background-color: #1565C0; /* Средне-синий */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+/* Кнопки */
+.btn-primary {
+    background-color: #0D47A1; /* Тёмно-синий */
+    border-color: #0D47A1;
+}
+.btn-primary:hover {
+    background-color: #1565C0; /* Светлее при наведении */
+}
+
+/* Поля ввода */
+.form-control {
+    border: 1px solid #1565C0;
+}
+
+/* Описание файлов */
+.form-text {
+    color: #0D47A1;
+}
+
+/* Окно предпросмотра видео */
+.sticker-preview {
+    background: #E3F2FD; /* Светло-голубой */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Радиокнопки аннотации */
+.form-check-label {
+    font-weight: 500;
+    color: #0D47A1; /* Тёмно-синий */
+}
+
+/* Граница аннотаций */
 .annotation-wrapper {
-    border: 2px solid #dee2e6;
+    border: 2px solid #0D47A1;
     border-radius: 5px;
     overflow: hidden;
     margin-bottom: 1rem;
 }
 
-.form-check-label {
-    font-weight: 500;
+/* Лог аннотаций */
+.annotation-log-entry {
+    padding: 5px;
+    margin: 3px 0;
+    border-radius: 4px;
+    background-color: #E3F2FD; /* Светло-голубой */
 }
 
-
-.annotation-wrapper {
-    border: 2px solid #ddd;
-    position: relative;
-    margin: 20px 0;
-}
-
+/* Холст аннотаций */
 #annotation-canvas {
     position: absolute;
     top: 0;
@@ -35,39 +84,22 @@ body {
     z-index: 2;
 }
 
-.btn {
-    margin-top: 10px;
+/* Видео (на случай прозрачности в WebM) */
+video {
+    background-color: #E3F2FD; /* Светло-голубой */
+    display: block;
 }
 
-
-.annotation-wrapper {
-    border: 2px solid #dee2e6;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-#frame-img {
-    pointer-events: none; /* Чтобы клики проходили через img к canvas */
-}
-
-#annotation-canvas {
-    z-index: 1000;
-}
-
-.sticker-preview {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.page-title {
+/* Кнопка загрузки аннотаций */
+#submit-points {
     background-color: #0D47A1;
-    color: white;
-    padding: 10px 20px; /* Отступы вокруг текста */
-    border-radius: 5px; /* Скругление углов */
-    text-align: left; /* Выравнивание по центру */
-    margin-bottom: 1.5rem; /* Отступ вниз */
+    border-color: #0D47A1;
+}
+#submit-points:hover {
+    background-color: #1565C0;
 }
 
-
+/* Текст логов аннотации */
+#annotation-log {
+    border-top: 2px solid #1565C0;
+}
