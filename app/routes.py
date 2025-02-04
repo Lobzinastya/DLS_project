@@ -185,12 +185,20 @@ def result():
         "-i", input_pattern,  # Шаблон входных файлов (ожидаются файлы с номерами)
         "-c:v", "libvpx-vp9",  # Кодек VP9 (WebM с прозрачностью)
         "-pix_fmt", "yuva420p",  # Поддержка прозрачности (alpha channel)
-        "-b:v", "1M",  # Битрейт видео
+        "-b:v", "500k",  # Битрейт видео
         "-y", output_webm  # Перезаписать файл, если уже существует
     ]
 
-    # Запускаем FFmpeg через subprocess
-    subprocess.run(ffmpeg_cmd, check=True)
+    process = subprocess.run(ffmpeg_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    # Проверяем код возврата
+    if process.returncode == 0:
+        print("FFmpeg завершился успешно.")
+    else:
+        print("FFmpeg завершился с ошибкой. Код возврата:", process.returncode)
+        print("Ошибка:", process.stderr.decode())
+
+
 
     if os.path.exists(output_webm):
         print("Файл найден:", output_webm)
@@ -199,5 +207,4 @@ def result():
 
 
 
-    static_webm_path = output_webm
-    return render_template('result.html', webm_path = output_webm)
+    return render_template('result.html', webm_path = os.path.join(current_app.config['OUTPUT_FOLDER'],"final_result.webm"))
