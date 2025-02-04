@@ -81,38 +81,26 @@ def predict_alpha_mask(predictor, output_dir, annotation):
     os.makedirs(output_folder, exist_ok=True)  # Создаём папку для выхода, если её нет
 
     for out_frame_idx, out_obj_ids, out_mask_logits in predictor.propagate_in_video(inference_state):
-        # Получаем mask logits и применяем сигмоиду
+        # Получаем mask logits
+        # Заглушка применяем сигмоиду + сглаживаем значения
         mask_pred = torch.sigmoid(out_mask_logits[out_obj_ids[0]])
         mask_pred = torch.clip(mask_pred, min=epsilon, max=1 - epsilon)
         mask_pred[mask_pred == epsilon] = 0
-        mask_pred[mask_pred == 1 - epsilon] = 1  # Бинаризация маски
-
+        mask_pred[mask_pred == 1 - epsilon] = 1
 
         mask_np = mask_pred.squeeze().cpu().numpy()
 
-        # Загружаем соответствующий кадр
         frame_path = os.path.join(frame_folder, f"{out_frame_idx:04d}.jpg")
         if os.path.exists(frame_path):
-            frame = cv2.imread(frame_path)  # Загружаем изображение
-            # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Конвертируем в RGB
+            frame = cv2.imread(frame_path)
 
-            # # Маска должна иметь 1 канал (ч/б), проверяем её размер
-            # if mask_np.shape[:2] != frame.shape[:2]:
-            #     mask_np = cv2.resize(mask_np, (frame.shape[1], frame.shape[0]), interpolation=cv2.INTER_NEAREST)
-
-            # Умножаем каждый канал RGB на маску (фон станет чёрным, объект останется)
-            frame_float = frame.astype(np.float32) / 255.0  # Нормализация в [0,1]
-            # masked_frame = frame_float * mask_np[:, :, np.newaxis]  # Применяем маску ко всем каналам
+            frame_float = frame.astype(np.float32) / 255.0
+            # masked_frame = frame_float * mask_np[:, :, np.newaxis]  # Применяем маску ко всем каналам - можно этого не делать, так как png сохраняется с альфа каналом?
             masked_frame = frame_float
             masked_frame_uint8 = (masked_frame * 255).astype(np.uint8)
 
             alpha_channel = (mask_np * 255).astype(np.uint8)
             rgba_image = np.dstack((masked_frame_uint8, alpha_channel))  # Теперь (H, W, 4)
 
-
-
-            # Конвертируем обратно в [0,255] и сохраняем
-
             output_path = os.path.join(output_folder, f"masked_{out_frame_idx:04d}.png")
-            # cv2.imwrite(output_path, cv2.cvtColor(masked_frame_uint8, cv2.COLOR_RGB2BGR))
             cv2.imwrite(output_path, rgba_image)

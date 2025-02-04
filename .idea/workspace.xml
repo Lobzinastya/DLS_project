@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Костыли для запуска из collab &#10;&#10;замена финального стикера">
+    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Костыли для запуска из collab &#10;&#10;замена финального стикера&#10;new_path">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/generate_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/generate_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +269,31 @@
       <option name="project" value="LOCAL" />
       <updated>1738670603223</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Костыли для запуска из collab &#10;&#10;замена финального стикера">
+      <option name="closed" value="true" />
+      <created>1738670989701</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1738670989701</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Костыли для запуска из collab &#10;&#10;замена финального стикера&#10;new_path">
+      <option name="closed" value="true" />
+      <created>1738671165266</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1738671165266</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Костыли для запуска из collab &#10;&#10;замена финального стикера&#10;new_path">
+      <option name="closed" value="true" />
+      <created>1738671938716</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1738671938716</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,6 +324,7 @@
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), sorted key" />
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), &#10;alpha channel" />
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;замена финального стикера" />
-    <option name="LAST_COMMIT_MESSAGE" value="Костыли для запуска из collab &#10;&#10;замена финального стикера" />
+    <MESSAGE value="Костыли для запуска из collab &#10;&#10;замена финального стикера&#10;new_path" />
+    <option name="LAST_COMMIT_MESSAGE" value="Костыли для запуска из collab &#10;&#10;замена финального стикера&#10;new_path" />
   </component>
 </project>

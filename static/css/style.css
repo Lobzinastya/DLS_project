@@ -1,4 +1,5 @@
 body {
+    background-color: #F8F9FA;
     padding: 20px;
 }
 
@@ -59,4 +60,14 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+.page-title {
+    background-color: #0D47A1;
+    color: white;
+    padding: 10px 20px; /* Отступы вокруг текста */
+    border-radius: 5px; /* Скругление углов */
+    text-align: left; /* Выравнивание по центру */
+    margin-bottom: 1.5rem; /* Отступ вниз */
+}
+
 
