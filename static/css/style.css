@@ -8,6 +8,9 @@ body {
 .navbar {
     background-color: #0D47A1 !important; /* Тёмно-синий */
 }
+.navbar-brand {
+    color: #BBDEFB !important;  /* Светло-голубой текст */
+}
 
 /* Основной контейнер */
 .container {
