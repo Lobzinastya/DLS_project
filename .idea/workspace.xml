@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="generation alpha changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/generate_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/generate_processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result.html" afterDir="false" />
-    </list>
+    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="smthg" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -348,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738674694406</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="smthg">
+      <option name="closed" value="true" />
+      <created>1738676219747</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1738676219747</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -384,6 +388,7 @@
     <MESSAGE value="синий на стиле" />
     <MESSAGE value="синий на стиле&#10;base.html" />
     <MESSAGE value="generation alpha changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="generation alpha changes" />
+    <MESSAGE value="smthg" />
+    <option name="LAST_COMMIT_MESSAGE" value="smthg" />
   </component>
 </project>
