@@ -5,15 +5,45 @@ from werkzeug.utils import secure_filename
 from app.utils.video_processor import process_video
 from flask import current_app, jsonify
 import json
+import shutil
+
+
 
 
 def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
+def clear_folders():
+    """Удаляет все файлы внутри папок UPLOAD_FOLDER, FRAME_FOLDER, OUTPUT_FOLDER, ANNOTATIONS_FOLDER
+    """
+    folders = [
+        current_app.config['UPLOAD_FOLDER'],
+        current_app.config['FRAME_FOLDER'],
+    #    current_app.config['OUTPUT_FOLDER'],
+        current_app.config['ANNOTATIONS_FOLDER']
+    ]
+
+    for folder in folders:
+        if os.path.exists(folder):  # папка существует
+            for file_name in os.listdir(folder):
+                file_path = os.path.join(folder, file_name)
+                try:
+                    if os.path.isfile(file_path) or os.path.islink(file_path):
+                        os.unlink(file_path)  # Удаляем файлы и символические ссылки
+                    elif os.path.isdir(file_path):
+                        shutil.rmtree(file_path)  # Удаляем вложенные папки
+                except Exception as e:
+                    current_app.logger.error(f"Ошибка при удалении {file_path}: {e}")
+
+
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    # удаление всего сохраненного в папках
+    clear_folders()
+
     if request.method == 'POST':
         if 'video' not in request.files:
             return redirect(request.url)
@@ -106,12 +136,13 @@ def save_annotations():
         current_app.logger.error(f"Annotation error: {str(e)}")
         return jsonify({"status": "error", "message": str(e)}), 500
 
-@app.route('/process', methods=['POST'])
-def process():
-    # Здесь будет обработка точек
-    return redirect(url_for('result'))
+# @app.route('/process', methods=['POST'])
+# def process():
+#     # Здесь будет обработка точек
+#     return redirect(url_for('result'))
 
 
-@app.route('/result')
+@app.route('/generate')
 def result():
-    return render_template('result.html')
+    static_webm_path = "static/uploads/output/sample_sticker.webm"
+    return render_template('result.html', webm_path = static_webm_path)
