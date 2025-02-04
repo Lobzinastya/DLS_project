@@ -153,7 +153,7 @@ def result():
     generation()
     print('Генерация отдельных png сделана')
 
-    input_folder = current_app['OUTPUT_FOLDER']
+    input_folder = current_app.config['OUTPUT_FOLDER']
     image_files = sorted(
         [f for f in os.listdir(input_folder) if f.endswith(".png")],
         key=lambda x: int(os.path.splitext(x)[0])

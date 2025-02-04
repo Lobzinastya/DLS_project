@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), mask вырезание">
+    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), webm sticker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +202,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738667162286</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), webm sticker">
+      <option name="closed" value="true" />
+      <created>1738667759268</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1738667759268</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), webm sticker">
+      <option name="closed" value="true" />
+      <created>1738667812479</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1738667812479</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -229,6 +244,7 @@
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), json проблема" />
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), cv2" />
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), mask вырезание" />
-    <option name="LAST_COMMIT_MESSAGE" value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), mask вырезание" />
+    <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), webm sticker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), webm sticker" />
   </component>
 </project>
