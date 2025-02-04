@@ -173,7 +173,7 @@ def result():
     if not has_alpha:
         raise ValueError("PNG-файлы должны содержать альфа-канал (RGBA)")
 
-    input_pattern = os.path.join(input_folder, "%04d.png")  # Ожидает файлы вида 0000.png, 0001.png...
+    input_pattern = os.path.join(input_folder, "masked_%04d.png")  # Ожидает файлы вида 0000.png, 0001.png...
 
     output_webm = os.path.join(input_folder,"final_result.webm")
     fps = 25
