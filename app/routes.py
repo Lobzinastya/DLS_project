@@ -3,6 +3,8 @@ from app import app
 import os
 from werkzeug.utils import secure_filename
 from app.utils.video_processor import process_video
+from app.utils.generate_processor import generation
+
 from flask import current_app, jsonify
 import json
 import shutil
@@ -144,5 +146,7 @@ def save_annotations():
 
 @app.route('/generate')
 def result():
+    generation()
+    print('И здесь все тоже ок')
     static_webm_path = "static/uploads/output/sample_sticker.webm"
     return render_template('result.html', webm_path = static_webm_path)
