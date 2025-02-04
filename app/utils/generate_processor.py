@@ -33,7 +33,13 @@ def generation():
     print('Predictor SAM2 загружен')
 
     frame_dir = current_app.config['FRAME_FOLDER']
-    annotation = os.path.join(current_app.config['ANNOTATIONS_FOLDER'] , 'annotations.json')
+    annotation_path = os.path.join(current_app.config['ANNOTATIONS_FOLDER'], 'annotations.json')
+
+    if not os.path.exists(annotation_path):
+        raise FileNotFoundError(f"❌ Файл аннотаций не найден: {annotation_path}")
+    with open(annotation_path, "r", encoding="utf-8") as f:
+        annotation = f.read().strip()
+
 
     predict_alpha_mask(predictor, frame_dir, annotation)
 

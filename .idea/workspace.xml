@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Костыли для запуска из collab &#10;&#10;generate_processor.py">
+    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Костыли для запуска из collab &#10;&#10;predict_alpha_mask()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/generate_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/generate_processor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738663246500</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Костыли для запуска из collab &#10;&#10;predict_alpha_mask()">
+      <option name="closed" value="true" />
+      <created>1738665227778</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1738665227778</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,6 +192,7 @@
     <MESSAGE value="Костыли для запуска из collab" />
     <MESSAGE value="Костыли для запуска из collab &#10;os.path.abspath(os.path.join(os.path.dirname(__file__), &quot;../..&quot;))" />
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;generate_processor.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Костыли для запуска из collab &#10;&#10;generate_processor.py" />
+    <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask()" />
   </component>
 </project>
