@@ -95,8 +95,8 @@ def predict_alpha_mask(predictor, output_dir, annotation):
             frame = cv2.imread(frame_path)
 
             frame_float = frame.astype(np.float32) / 255.0
-            # masked_frame = frame_float * mask_np[:, :, np.newaxis]  # Применяем маску ко всем каналам - можно этого не делать, так как png сохраняется с альфа каналом?
-            masked_frame = frame_float
+            masked_frame = frame_float * mask_np[:, :, np.newaxis]  # Применяем маску ко всем каналам - можно этого не делать, так как png сохраняется с альфа каналом?
+            #masked_frame = frame_float
             masked_frame_uint8 = (masked_frame * 255).astype(np.uint8)
 
             alpha_channel = (mask_np * 255).astype(np.uint8)
