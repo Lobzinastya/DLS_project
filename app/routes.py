@@ -192,7 +192,12 @@ def result():
     # Запускаем FFmpeg через subprocess
     subprocess.run(ffmpeg_cmd, check=True)
 
+    if os.path.exists(output_webm):
+        print("Файл найден:", output_webm)
+    else:
+        print("Файл НЕ найден!")
+
 
 
     static_webm_path = output_webm
-    return render_template('result.html', webm_path = static_webm_path)
+    return render_template('result.html', webm_path = output_webm)

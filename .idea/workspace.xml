@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), sorted key">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/generate_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/generate_processor.py" afterDir="false" />
+    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Костыли для запуска из collab &#10;&#10;замена финального стикера">
+      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +242,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738669620312</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), &#10;alpha channel">
+      <option name="closed" value="true" />
+      <created>1738669969066</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1738669969066</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Костыли для запуска из collab &#10;&#10;замена финального стикера">
+      <option name="closed" value="true" />
+      <created>1738670239159</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1738670239159</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,6 +287,8 @@
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), webm sticker" />
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), input_folder = current_app.config['OUTPUT_FOLDER']" />
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), sorted key" />
-    <option name="LAST_COMMIT_MESSAGE" value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), sorted key" />
+    <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), &#10;alpha channel" />
+    <MESSAGE value="Костыли для запуска из collab &#10;&#10;замена финального стикера" />
+    <option name="LAST_COMMIT_MESSAGE" value="Костыли для запуска из collab &#10;&#10;замена финального стикера" />
   </component>
 </project>
