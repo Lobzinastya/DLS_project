@@ -22,7 +22,7 @@ def clear_folders():
     folders = [
         current_app.config['UPLOAD_FOLDER'],
         current_app.config['FRAME_FOLDER'],
-    #    current_app.config['OUTPUT_FOLDER'],
+        current_app.config['OUTPUT_FOLDER'],
         current_app.config['ANNOTATIONS_FOLDER']
     ]
 
@@ -194,5 +194,5 @@ def result():
 
 
 
-    static_webm_path = "static/uploads/output/sample_sticker.webm"
+    static_webm_path = output_webm
     return render_template('result.html', webm_path = static_webm_path)
