@@ -3,7 +3,9 @@ from app import app
 import os
 from werkzeug.utils import secure_filename
 from app.utils.video_processor import process_video
-from flask import current_app
+from flask import current_app, jsonify
+import json
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -79,6 +81,7 @@ def save_annotations():
     try:
         data = request.json
         annotations = data.get('points', [])
+        print('Получены аннотации', annotations)
 
         # Валидация данных
         for ann in annotations:
