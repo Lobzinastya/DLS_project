@@ -205,6 +205,6 @@ def result():
     else:
         print("Файл НЕ найден!")
 
+    new_path = "static/uploads/output/final_result.webm"
 
-
-    return render_template('result.html', webm_path = os.path.join(current_app.config['OUTPUT_FOLDER'],"final_result.webm"))
+    return render_template('result.html', webm_path = new_path)
