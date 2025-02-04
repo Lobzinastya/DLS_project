@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="темносиний">
-      <change beforePath="$PROJECT_DIR$/static/uploads/output/final_result.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/uploads/output/sample_sticker.webm" beforeDir="false" />
+    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="generation alpha changes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/generate_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/generate_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +316,39 @@
       <option name="project" value="LOCAL" />
       <updated>1738673538857</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="синий на стиле">
+      <option name="closed" value="true" />
+      <created>1738673925396</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1738673925396</updated>
+    </task>
+    <task id="LOCAL-00029" summary="синий на стиле">
+      <option name="closed" value="true" />
+      <created>1738674245868</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1738674245868</updated>
+    </task>
+    <task id="LOCAL-00030" summary="синий на стиле&#10;base.html">
+      <option name="closed" value="true" />
+      <created>1738674406738</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1738674406738</updated>
+    </task>
+    <task id="LOCAL-00031" summary="generation alpha changes">
+      <option name="closed" value="true" />
+      <created>1738674694406</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1738674694406</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,6 +381,9 @@
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;замена финального стикера" />
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;замена финального стикера&#10;new_path" />
     <MESSAGE value="темносиний" />
-    <option name="LAST_COMMIT_MESSAGE" value="темносиний" />
+    <MESSAGE value="синий на стиле" />
+    <MESSAGE value="синий на стиле&#10;base.html" />
+    <MESSAGE value="generation alpha changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="generation alpha changes" />
   </component>
 </project>

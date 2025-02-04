@@ -37,7 +37,7 @@ def generation():
     annotation_path = os.path.join(current_app.config['ANNOTATIONS_FOLDER'], 'annotations.json')
 
     if not os.path.exists(annotation_path):
-        raise FileNotFoundError(f"❌ Файл аннотаций не найден: {annotation_path}")
+        raise FileNotFoundError(f"Файл аннотаций не найден: {annotation_path}")
     with open(annotation_path, "r", encoding="utf-8") as f:
         annotation = f.read().strip()
 
@@ -52,6 +52,7 @@ def generation():
 
 def predict_alpha_mask(predictor, output_dir, annotation):
     import cv2
+    from matting_model import load_model
 
     torch.cuda.empty_cache()
 
@@ -73,16 +74,16 @@ def predict_alpha_mask(predictor, output_dir, annotation):
                                                                       )
 
     mask_logits = []
-    epsilon = 0.3  # Граница для бинаризации маски
 
-    # Папка с кадрами
+    # ВАРИАНТ 1 - с заглушкой
+    epsilon = 0.3  # Граница для бинаризации маски
     frame_folder = current_app.config['FRAME_FOLDER']
     output_folder = current_app.config['OUTPUT_FOLDER']
-    os.makedirs(output_folder, exist_ok=True)  # Создаём папку для выхода, если её нет
+    os.makedirs(output_folder, exist_ok=True)
 
     for out_frame_idx, out_obj_ids, out_mask_logits in predictor.propagate_in_video(inference_state):
         # Получаем mask logits
-        # Заглушка применяем сигмоиду + сглаживаем значения
+        # Заглушка: применяем сигмоиду + сглаживаем значения
         mask_pred = torch.sigmoid(out_mask_logits[out_obj_ids[0]])
         mask_pred = torch.clip(mask_pred, min=epsilon, max=1 - epsilon)
         mask_pred[mask_pred == epsilon] = 0
@@ -104,3 +105,27 @@ def predict_alpha_mask(predictor, output_dir, annotation):
 
             output_path = os.path.join(output_folder, f"masked_{out_frame_idx:04d}.png")
             cv2.imwrite(output_path, rgba_image)
+
+
+    # # ВАРИАНТ 2 - с добавлением модели, не реализовано
+    # mask_logits = []
+    # for out_frame_idx, out_obj_ids, out_mask_logits in predictor.propagate_in_video(inference_state):
+    #     mask_logits.append (out_mask_logits[out_obj_ids[0]].cpu())
+    #
+    # with torch.no_grad():
+    #   features = predictor._get_image_feature(inference_state, 0, len(mask_logits))[0:3]
+    #
+    # model = load_model()
+    # device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    # preds_test = model(features, mask_logits.float().to(device))
+    # preds_test_shaped = F.interpolate(preds_test[0], size=mask_logits.shape[2:], mode='bilinear', align_corners=False)
+    # ### и тд
+    #
+
+
+
+
+
+
+
+
