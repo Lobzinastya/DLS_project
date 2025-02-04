@@ -51,6 +51,8 @@ def generation():
 
 
 def predict_alpha_mask(predictor, output_dir, annotation):
+    import cv2
+
     torch.cuda.empty_cache()
 
     data = json.loads(annotation)
