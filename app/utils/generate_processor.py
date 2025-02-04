@@ -103,9 +103,15 @@ def predict_alpha_mask(predictor, output_dir, annotation):
             # Умножаем каждый канал RGB на маску (фон станет чёрным, объект останется)
             frame_float = frame.astype(np.float32) / 255.0  # Нормализация в [0,1]
             masked_frame = frame_float * mask_np[:, :, np.newaxis]  # Применяем маску ко всем каналам
+            masked_frame_uint8 = (masked_frame * 255).astype(np.uint8)
+
+            alpha_channel = (mask_np * 255).astype(np.uint8)
+            rgba_image = np.dstack((masked_frame_uint8, alpha_channel))  # Теперь (H, W, 4)
+
+
 
             # Конвертируем обратно в [0,255] и сохраняем
-            masked_frame_uint8 = (masked_frame * 255).astype(np.uint8)
+
             output_path = os.path.join(output_folder, f"masked_{out_frame_idx:04d}.png")
             # cv2.imwrite(output_path, cv2.cvtColor(masked_frame_uint8, cv2.COLOR_RGB2BGR))
-            cv2.imwrite(output_path, masked_frame_uint8)
+            cv2.imwrite(output_path, rgba_image)
