@@ -2,6 +2,19 @@ from flask import Flask
 from config import Config
 import os
 
+import sys
+
+
+# Получаем абсолютный путь к GDRIVE_PATH (один уровень выше от Flask)
+GDRIVE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
+# Формируем путь к sam2
+SAM2_PATH = os.path.join(GDRIVE_PATH, "sam2")
+print('GDRIVE_PATH', GDRIVE_PATH)
+print('SAM2_PATH',SAM2_PATH)
+
+
+
 app = Flask(__name__,
            template_folder='../templates',
            static_folder='../static')

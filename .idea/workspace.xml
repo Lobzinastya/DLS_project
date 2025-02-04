@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Points Annotations with jsonife">
+    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Логика структуры доделана&#10;но нет никакой генерации (только заглушки)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/video_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/video_processor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/uploads/frames/first_frame.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/uploads/videos/blended_video_1.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/uploads/videos/video_output.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/annotate.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/annotate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738656323822</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Логика структуры доделана&#10;но нет никакой генерации (только заглушки)">
+      <option name="closed" value="true" />
+      <created>1738658810767</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738658810767</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +156,7 @@
     <MESSAGE value="First Commit" />
     <MESSAGE value="Points Annotations" />
     <MESSAGE value="Points Annotations with jsonife" />
-    <option name="LAST_COMMIT_MESSAGE" value="Points Annotations with jsonife" />
+    <MESSAGE value="Логика структуры доделана&#10;но нет никакой генерации (только заглушки)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Логика структуры доделана&#10;но нет никакой генерации (только заглушки)" />
   </component>
 </project>
