@@ -146,7 +146,53 @@ def save_annotations():
 
 @app.route('/generate')
 def result():
+    import os
+    import cv2
+    import subprocess
+
     generation()
-    print('И здесь все тоже ок')
+    print('Генерация отдельных png сделана')
+
+    input_folder = current_app['OUTPUT_FOLDER']
+    image_files = sorted(
+        [f for f in os.listdir(input_folder) if f.endswith(".png")],
+        key=lambda x: int(os.path.splitext(x)[0])
+    )
+
+    if not image_files:
+        raise ValueError("В папке нет рендеров PNG-файлов!")
+
+    first_image_path = os.path.join(input_folder, image_files[0])
+    first_image = cv2.imread(first_image_path, cv2.IMREAD_UNCHANGED)
+
+    if first_image is None:
+        raise ValueError(f"Ошибка чтения изображения {first_image_path}")
+    h, w = first_image.shape[:2]
+
+    has_alpha = first_image.shape[2] == 4
+    if not has_alpha:
+        raise ValueError("PNG-файлы должны содержать альфа-канал (RGBA)")
+
+    input_pattern = os.path.join(input_folder, "%04d.png")  # Ожидает файлы вида 0000.png, 0001.png...
+
+    output_webm = os.path.join(input_folder,"final_result.webm")
+    fps = 25
+
+    # Команда FFmpeg для создания WebM с прозрачностью
+    ffmpeg_cmd = [
+        "ffmpeg",
+        "-framerate", str(fps),  # FPS
+        "-i", input_pattern,  # Шаблон входных файлов (ожидаются файлы с номерами)
+        "-c:v", "libvpx-vp9",  # Кодек VP9 (WebM с прозрачностью)
+        "-pix_fmt", "yuva420p",  # Поддержка прозрачности (alpha channel)
+        "-b:v", "1M",  # Битрейт видео
+        "-y", output_webm  # Перезаписать файл, если уже существует
+    ]
+
+    # Запускаем FFmpeg через subprocess
+    subprocess.run(ffmpeg_cmd, check=True)
+
+
+
     static_webm_path = "static/uploads/output/sample_sticker.webm"
     return render_template('result.html', webm_path = static_webm_path)
