@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), json проблема" />
+    <list default="true" id="ae7eef80-89ea-44a7-b167-089fd5b487ff" name="Changes" comment="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), cv2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -184,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738666106404</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), cv2">
+      <option name="closed" value="true" />
+      <created>1738666460435</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1738666460435</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,6 +216,7 @@
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;generate_processor.py" />
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask()" />
     <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), json проблема" />
-    <option name="LAST_COMMIT_MESSAGE" value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), json проблема" />
+    <MESSAGE value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), cv2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Костыли для запуска из collab &#10;&#10;predict_alpha_mask(), cv2" />
   </component>
 </project>

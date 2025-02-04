@@ -87,24 +87,25 @@ def predict_alpha_mask(predictor, output_dir, annotation):
         mask_pred[mask_pred == epsilon] = 0
         mask_pred[mask_pred == 1 - epsilon] = 1  # Бинаризация маски
 
-        # Преобразуем маску в NumPy и масштабируем в 0-255 для OpenCV
-        mask_np = (mask_pred.squeeze().cpu().numpy() * 255).astype(np.uint8)
+
+        mask_np = mask_pred.squeeze().cpu().numpy()
 
         # Загружаем соответствующий кадр
         frame_path = os.path.join(frame_folder, f"{out_frame_idx:04d}.jpg")
         if os.path.exists(frame_path):
             frame = cv2.imread(frame_path)  # Загружаем изображение
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Конвертируем в RGB
+            # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Конвертируем в RGB
 
-            # Маска должна иметь 1 канал (ч/б), проверяем её размер
-            if mask_np.shape[:2] != frame.shape[:2]:
-                mask_np = cv2.resize(mask_np, (frame.shape[1], frame.shape[0]), interpolation=cv2.INTER_NEAREST)
+            # # Маска должна иметь 1 канал (ч/б), проверяем её размер
+            # if mask_np.shape[:2] != frame.shape[:2]:
+            #     mask_np = cv2.resize(mask_np, (frame.shape[1], frame.shape[0]), interpolation=cv2.INTER_NEAREST)
 
-            # Накладываем маску на кадр (например, альфа-композит)
-            overlay = cv2.addWeighted(frame, 0.6, cv2.cvtColor(mask_np, cv2.COLOR_GRAY2RGB), 0.4, 0)
+            # Умножаем каждый канал RGB на маску (фон станет чёрным, объект останется)
+            frame_float = frame.astype(np.float32) / 255.0  # Нормализация в [0,1]
+            masked_frame = frame_float * mask_np[:, :, np.newaxis]  # Применяем маску ко всем каналам
 
-            # Сохраняем изображение с маской
-            output_path = os.path.join(output_folder, f"masked_{out_frame_idx:04d}.jpg")
-            cv2.imwrite(output_path, cv2.cvtColor(overlay, cv2.COLOR_RGB2BGR))
-
-        mask_logits.append(mask_np)
+            # Конвертируем обратно в [0,255] и сохраняем
+            masked_frame_uint8 = (masked_frame * 255).astype(np.uint8)
+            output_path = os.path.join(output_folder, f"masked_{out_frame_idx:04d}.png")
+            # cv2.imwrite(output_path, cv2.cvtColor(masked_frame_uint8, cv2.COLOR_RGB2BGR))
+            cv2.imwrite(output_path, masked_frame_uint8)
